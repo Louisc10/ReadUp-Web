@@ -14,7 +14,7 @@
                 </a>
             </li>
             <li class="nav-item mx-3">
-                <a href="/genre/all">
+                <a href="/genre">
                     <button type="button" class="btn btn-primary">Genre</button>
                 </a>
             </li>

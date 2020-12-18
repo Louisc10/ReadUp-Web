@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'UserController@home');
 
 Route::get('/login', 'UserController@loginGet');
 
@@ -26,3 +24,7 @@ Route::get('/register', 'UserController@registerGet');
 Route::post('/register', 'UserController@registerPost');
 
 Route::get('/logout', 'UserController@logout');
+
+Route::get('/genre', 'GenreController@showAll');
+
+Route::get('/genre/{id}', 'GenreController@showComicByGenre');

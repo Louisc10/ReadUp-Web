@@ -11,11 +11,17 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-public function loginGet()
-{
-    if(auth())
-        return view('login');
-}
+    public function home()
+    {
+        $books = DB::table('books')->get();
+        return view('home', ['books' => $books]);
+    }
+    
+    public function loginGet()
+    {
+        if(auth())
+            return view('login');
+    }
 
     public function loginPost(loginRequest $request)
     {
