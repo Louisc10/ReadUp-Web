@@ -18,6 +18,8 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->double('rating');
             $table->string('description');
+            $table->string('image');
+            $table->integer('reads');
             $table->timestamps();
         });
     }

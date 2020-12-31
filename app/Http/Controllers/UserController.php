@@ -8,13 +8,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Book;
 
 class UserController extends Controller
 {
     public function home()
     {
-        $books = DB::table('books')->get();
-        return view('home', ['books' => $books]);
+        $popular = Book::orderBy('reads', 'desc')
+                    ->take(5)->get();
+
+        $latest = Book::orderBy('id', 'desc')
+                    ->take(15)->get();
+        
+        return view('home', ['popular' => $popular, 'latest' => $latest]);
     }
     
     public function loginGet()

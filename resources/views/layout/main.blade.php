@@ -9,16 +9,19 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>@yield('title')</title>
+    <title>@yield('title') - ReadUp</title>
 </head>
 <body>
-    <div>
+    <div id="header">
         @include('component.navbar')
     </div>
-    <div>
+    <div id="content">
         @yield('content')
     </div>
-
+    <div id="footer">
+        @include('component.footer')
+    </div>
 </body>
 </html>

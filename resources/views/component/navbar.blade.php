@@ -1,21 +1,23 @@
-<div class="navbar navbar-expand sticky-top navbar-light" style="background-color: #e3f2fd;">
-    <img src="{{ asset('assets/logo.jpg') }}">
-    <p class="navbar-brand m-2" href="/">ReadUp</p>
+<div class="navbar navbar-expand sticky-top navbar-light">
+    <div id="navbar-company">
+        <img src="{{ asset('assets/logo.jpg') }}">
+        <a class="navbar-brand m-2" href="/">ReadUp</a>
+    </div>
     <div class="collapse navbar-collapse d-flex justify-content-start" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item mx-3">
                 <a href="/">
-                    <button type="button" class="btn btn-primary">Dashboard</button>
+                    <div>Dashboard</div>
                 </a>
             </li>
             <li class="nav-item mx-3">
                 <a href="/hot">
-                    <button type="button" class="btn btn-primary">Hot Manga</button>
+                    <div>Hot Manga</div>
                 </a>
             </li>
             <li class="nav-item mx-3">
                 <a href="/genre">
-                    <button type="button" class="btn btn-primary">Genre</button>
+                    <div>Genre</div>
                 </a>
             </li>
         </ul>
@@ -26,7 +28,7 @@
         <ul class="navbar-nav">
             <li class="nav-item mx-1">
                 <a href="/logout">
-                    <button type="button" class="btn btn-primary">Logout</button>
+                    <div>Logout</div>
                 </a>
             </li>
         </ul>
@@ -34,15 +36,41 @@
         <ul class="navbar-nav">
             <li class="nav-item mx-1">
                 <a href="/login">
-                    <button type="button" class="btn btn-primary">Login</button>
+                    <div>Login</div>
                 </a>
+            </li>
+            <li class="nav-item mx-1 separator" style="width: 1px; height: 100%; padding: 4vh 0;">
+                <div style="background-color: #fff; width: 100%; height: 100%;"></div>
             </li>
             <li class="nav-item mx-1">
                 <a href="/register">
-                    <button type="button" class="btn btn-primary">Register</button>
+                    <div>Register</div>
                 </a>
             </li>
         </ul>
         @endif
     </div>
 </div>
+<script>
+    const debounce = (fn) => {
+        let frame;
+        return (...params) => {
+            if (frame) { 
+                cancelAnimationFrame(frame);
+            }
+
+            frame = requestAnimationFrame(() => {
+                fn(...params);
+            });
+        }
+    };
+
+    const storeScroll = () => {
+        document.documentElement.dataset.scroll = window.scrollY;
+    }
+
+    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+    storeScroll();
+
+</script>

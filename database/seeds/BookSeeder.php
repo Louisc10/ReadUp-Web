@@ -18,7 +18,9 @@ class BookSeeder extends Seeder
                 [
                     'title' => $faker->sentence($nbWords = 2, $variableNbWords = true),
                     'rating' => $faker->randomFloat($nbMaxDecimals = 1, $min = 0, $max = 5),
-                    'Description' => $faker->text($maxNbChars = 200),
+                    'description' => $faker->text($maxNbChars = 200),
+                    'image' => 'https://dummyimage.com/500x700/222/fff&text=img not available',
+                    'reads' => $faker->unique()->randomNumber,
                 ]
             );
 
