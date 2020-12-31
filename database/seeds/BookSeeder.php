@@ -14,13 +14,14 @@ class BookSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
         for($i = 0; $i < 30; $i++){
+            $reads = $faker->unique()->randomNumber;
             DB::table('books')->insert(
                 [
                     'title' => $faker->sentence($nbWords = 2, $variableNbWords = true),
                     'rating' => $faker->randomFloat($nbMaxDecimals = 1, $min = 0, $max = 5),
                     'description' => $faker->text($maxNbChars = 200),
-                    'image' => 'https://dummyimage.com/500x700/222/fff&text=img not available',
-                    'reads' => $faker->unique()->randomNumber,
+                    'image' => 'https://dummyimage.com/500x700/222/fff&text='.$reads,
+                    'reads' => $reads,
                 ]
             );
 

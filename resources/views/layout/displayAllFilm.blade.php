@@ -6,8 +6,8 @@
                 <a class="card-image" href="/read/{{$item->id}}">
                     <img src="{{$item->image}}" alt="">
                 </a>
-                <div class="card-show-info material-icons"><label for="show-{{$item->id}}-{{$sect}}">filter_list</label></div>
-                <input type="checkbox" name="show-{{$item->id}}" hidden id="show-{{$item->id}}-{{$sect}}" class="card-shower">
+                <div class="card-show-info material-icons"><label for="show-{{$item->id}}-{{$sect ?? ''}}">filter_list</label></div>
+                <input type="checkbox" name="show-{{$item->id}}" hidden id="show-{{$item->id}}-{{$sect ?? ''}}" class="card-shower">
                 <div class="card-info">
                     <div>
                         <div class="cit-rb"></div>

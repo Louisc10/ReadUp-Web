@@ -22,6 +22,13 @@ class UserController extends Controller
         
         return view('home', ['popular' => $popular, 'latest' => $latest]);
     }
+
+    public function hot(){
+        $hots = Book::orderBy('reads', 'desc')
+                    ->paginate(20);
+
+        return view('hot', ['hots' => $hots]);
+    }
     
     public function loginGet()
     {
