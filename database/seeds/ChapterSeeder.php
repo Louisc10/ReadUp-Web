@@ -21,7 +21,7 @@ class ChapterSeeder extends Seeder
             DB::table('chapters')->insert(
                 [
                     'book_id' => $faker->numberBetween($min = 1, $max = 30) ,
-                    'title' => 'Chapter ' . $faker->word,
+                    'title' => $faker->word,
                 ]
             );
 

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public function getBookDetail($id){
+        $data = Book::where('id', '=', $id)->first();
+
+        // dd($data);
+        return view('bookDetail', ['data' => $data]);
+    }
     /**
      * Display a listing of the resource.
      *

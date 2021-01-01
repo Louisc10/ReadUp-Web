@@ -40,7 +40,9 @@
                         <input type="checkbox" class="form-check-input" name="checkRememberMe" id="checkRememberMe">
                         <label class="form-check-label" for="checkRememberMe">Remember Me</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div style="display: flex; justify-content: flex-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
                 
                 @if (count($errors) > 0)

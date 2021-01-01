@@ -7,7 +7,7 @@
 @section('content')
     <div id="banner">
         <div class="photo-bg">
-            <div style="background-image: url('{{ asset('assets/wallpaper3.jpg') }}');"></div>
+            <div style="background-image: url('{{ asset('assets/wallpaper2.jpg') }}');"></div>
         </div>
         <div id="banner-container">
             <h1>Welcome to ReadUp!</h1>

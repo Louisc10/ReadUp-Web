@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'UserController@home');
 Route::get('/hot', 'UserController@hot');
 
+Route::get('/read/{id}', 'BookController@getBookDetail');
+
 Route::get('/login', 'UserController@loginGet');
 
 Route::post('/login', 'UserController@loginPost');

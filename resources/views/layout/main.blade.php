@@ -13,7 +13,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>@yield('title') - ReadUp</title>
 </head>
-<body>
+<body id="body" onload="preLoad()" style="opacity: 0">
     <div id="header">
         @include('component.navbar')
     </div>
@@ -24,4 +24,5 @@
         @include('component.footer')
     </div>
 </body>
+<script src="{{ asset('js/customScript.js') }}"></script>
 </html>

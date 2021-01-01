@@ -43,7 +43,9 @@
                             <div></div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div style="display: flex; justify-content: flex-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
                 @if (count($errors) > 0)
                     <div class="alert alert-danger m-2">
