@@ -13,7 +13,7 @@ class ChapterDetailsSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
-        for($i = 1; $i <= 100; $i++){
+        for($i = 1; $i <= 150; $i++){
             for($j =0; $j < $faker->numberBetween(4, 15); $j++){
                 DB::table('chapter_details')->insert(
                     [
