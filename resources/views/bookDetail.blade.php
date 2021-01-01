@@ -41,7 +41,7 @@
                 <div style="color: #97a7c0; font-weight: 700;">Genre</div>
                 <div>
                     @foreach($data->bookGenres as $bookGenres)
-                        <span class="bd-genre">{{$bookGenres->genre->name}}</span>
+                        <a class="bd-genre" href="/genre/{{$bookGenres->genre->name}}">{{$bookGenres->genre->name}}</a>
                     @endforeach
                 </div>
             </div>

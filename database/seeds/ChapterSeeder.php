@@ -17,7 +17,7 @@ class ChapterSeeder extends Seeder
         // $populator = new \Faker\ORM\Propel\Populator($faker);
         // $populator->addEntity('Chapter', 100);
         // $insertedPKs = $populator->execute();
-        for($i = 0; $i < 100; $i++){
+        for($i = 0; $i < 150; $i++){
             DB::table('chapters')->insert(
                 [
                     'book_id' => $faker->numberBetween($min = 1, $max = 30) ,

@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ChapterController extends Controller
 {
+    public function getChapter($bookId, $chapterId){
+        $skip = $chapterId - 1;
+        $data = Chapter::where('book_id','=',$bookId)
+                        ->skip($skip)->first();
+        
+        return view('readChapter', ['data' => $data, 'id' => $chapterId]);
+    }
     /**
      * Display a listing of the resource.
      *

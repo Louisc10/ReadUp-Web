@@ -17,6 +17,7 @@ Route::get('/', 'UserController@home');
 Route::get('/hot', 'UserController@hot');
 
 Route::get('/read/{id}', 'BookController@getBookDetail');
+Route::get('/read/{bookId}/{chapterId}', 'ChapterController@getChapter');
 
 Route::get('/login', 'UserController@loginGet');
 
@@ -29,5 +30,6 @@ Route::post('/register', 'UserController@registerPost');
 Route::get('/logout', 'UserController@logout');
 
 Route::get('/genre', 'GenreController@showAll');
+Route::get('/popular', 'GenreController@popularGenre');
 
 Route::get('/genre/{id}', 'GenreController@showComicByGenre');

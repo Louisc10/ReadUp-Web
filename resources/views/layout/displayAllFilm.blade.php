@@ -30,5 +30,8 @@
             </div>
         </div>
         @endforeach
+        @for($i = $books->count() % 5; $i < 5; $i++)
+        <div class="col mb-4"></div>
+        @endfor
     </div>
 </div>

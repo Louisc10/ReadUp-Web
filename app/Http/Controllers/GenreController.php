@@ -3,24 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Genre;
+use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Builder;
 
 class GenreController extends Controller
 {
 
     public function showAll()
     {
-        $data = DB::table('genres')->get();
+        $data = Genre::orderBy('name', 'asc')
+                    // ->get();
+                    ->paginate(48);
+        $books = 'none';
+        return view('allGenre', ['data' => $data,'books' => $books]);
+    }
+
+    public function popularGenre(){
+        $data = Genre::withCount('bookGenres')
+                    ->orderBy('book_genres_count', 'desc')
+                    ->orderBy('name', 'asc')
+                    ->paginate(48);
+                    // ->first();
+        
+        // dd($data[0]->bookGenres->count());
         $books = 'none';
         return view('allGenre', ['data' => $data,'books' => $books]);
     }
 
     public function showComicByGenre($genre)
     {
-        $data = DB::table('genres')->get();
-        $books = DB::table('books')->get();
-        return view('allGenre', ['data' => $data,'books' => $books]);
+        $asd = Genre::where('name','=',$genre)->first();
+        $id = $asd->id;
+        $get = Book::with('bookGenres')->whereHas('bookGenres', function($q) use($id) {
+            $q->where('genre_id', '=', $id);
+        })->paginate(20);
+
+        return view('bookGenre', ['data' => $get, 'filter' => $genre]);
     }
     /**
      * Display a listing of the resource.
