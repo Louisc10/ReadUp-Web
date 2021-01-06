@@ -24,7 +24,14 @@ class ChapterSeeder extends Seeder
                     'title' => $faker->word,
                 ]
             );
-
+        }
+        for($i = 0; $i < 50; $i++){
+            DB::table('chapters')->insert(
+                [
+                    'book_id' => 1,
+                    'title' => $faker->word,
+                ]
+            );
         }
     }
 }

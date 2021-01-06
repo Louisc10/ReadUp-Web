@@ -34,11 +34,10 @@ class GenreController extends Controller
 
     public function showComicByGenre($genre)
     {
-        $asd = Genre::where('name','=',$genre)->first();
-        $id = $asd->id;
+        $id = Genre::where('name','=',$genre)->first()->id;
         $get = Book::with('bookGenres')->whereHas('bookGenres', function($q) use($id) {
             $q->where('genre_id', '=', $id);
-        })->paginate(20);
+        })->orderBy('id', 'desc')->paginate(20);
 
         return view('bookGenre', ['data' => $get, 'filter' => $genre]);
     }

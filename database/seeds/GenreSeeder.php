@@ -44,12 +44,12 @@ class GenreSeeder extends Seeder
             ],
         ];
 
-        // $faker = Faker\Factory::create();
-        // for($i = 0; $i < 1000; $i++){
-        //     DB::table('genres')->insert([
-        //         'name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
-        //     ]);
-        // }
+        $faker = Faker\Factory::create();
+        for($i = 0; $i < 1000; $i++){
+            DB::table('genres')->insert([
+                'name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
+            ]);
+        }
         
         DB::table('genres')->insert($data);
     }
